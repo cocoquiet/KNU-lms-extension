@@ -5,21 +5,32 @@ import * as vscode from 'vscode';
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+	const config = vscode.workspace.getConfiguration('knu');
+	const token = config.get<string>('token');
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "knu" is now active!');
+	if (token === "") {
+		vscode.window.showWarningMessage("LMS 토큰을 설정해주세요.")
+	}
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('knu.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from KNU-lms-extension!');
+	let checkapi = vscode.commands.registerCommand('knu.checkapi', async () => {
+		const response = await fetch("https://canvas.knu.ac.kr/api/v1/courses", {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+					"Authorization": `Bearer ${token}`
+				},
+			});
+
+		if (response.ok) {
+			let data = await response.json();
+			vscode.window.showInformationMessage(JSON.stringify(data));
+		}
+		else {
+			vscode.window.showErrorMessage("Error: " + response.status);
+		}
 	});
 
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(checkapi);
 }
 
 // This method is called when your extension is deactivated

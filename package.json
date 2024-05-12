@@ -14,10 +14,20 @@
   "contributes": {
     "commands": [
       {
-        "command": "knu.helloWorld",
-        "title": "Hello World"
+        "command": "knu.checkapi",
+        "title": "check api"
       }
-    ]
+    ], 
+    "configuration": {
+      "title": "KNU-lms-extension",
+      "properties": {
+        "knu.token": {
+          "type": "string",
+          "default": "",
+          "description": "LMS의 API를 사용하기 위한 토큰을 입력해주세요."
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
