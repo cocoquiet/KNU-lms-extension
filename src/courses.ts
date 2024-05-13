@@ -6,9 +6,14 @@ export class CoursesProvider implements vscode.TreeDataProvider<Course> {
     readonly onDidChangeTreeData: vscode.Event<Course | undefined | null | void>
         = this._onDidChangeTreeData.event;
 
-    constructor(private courses: Course[]) {}
+    private courses: Course[];
+    
+    constructor(courses: Course[]) {
+        this.courses = courses;
+    }
 
-    refresh(): void {
+    refresh(courses: Course[]): void {
+        this.courses = courses;
         this._onDidChangeTreeData.fire();
     }
 

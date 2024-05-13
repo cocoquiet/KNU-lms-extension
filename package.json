@@ -54,7 +54,8 @@
       }
     ], 
     "configuration": {
-      "title": "KNU-lms-extension",
+      "type": "object",
+      "title": "KNU",
       "properties": {
         "knu.token": {
           "type": "string",
