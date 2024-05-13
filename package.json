@@ -12,10 +12,45 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "LMS",
+          "title": "KNU lms extension",
+          "icon": "resources/knu_logo.svg"
+        }
+      ]
+    },
+    "views": {
+      "LMS": [
+        {
+          "id": "course",
+          "name": "course"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "course.refreshEntry",
+          "when": "view == course",
+          "group": "navigation"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "knu.checkapi",
         "title": "check api"
+      },
+      {
+        "command": "course.refreshEntry",
+        "title": "refresh",
+        "icon": {
+          "light": "resources/light/refresh.svg",
+          "dark": "resources/dark/refresh.svg"
+        
+        }
       }
     ], 
     "configuration": {
