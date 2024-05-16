@@ -26,6 +26,10 @@
         {
           "id": "course",
           "name": "course"
+        },
+        {
+          "id": "detail",
+          "name": "detail"
         }
       ]
     },
@@ -51,6 +55,10 @@
           "dark": "resources/dark/refresh.svg"
         
         }
+      },
+      {
+        "command": "course.showDetail",
+        "title": "Show Detail"
       }
     ], 
     "configuration": {

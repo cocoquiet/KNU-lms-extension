@@ -7,7 +7,7 @@ export async function getCourseList(): Promise<Course[]> {
 
     if (token === "") {
         vscode.window.showWarningMessage("LMS 토큰을 설정해주세요.");
-        return Promise.resolve([]); // Ensure a Promise is returned even in this conditional block
+        return Promise.resolve([]);
     }
 
     try {

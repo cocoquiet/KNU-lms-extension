@@ -34,5 +34,10 @@ export class Course extends vscode.TreeItem {
         public readonly collapsibleState: vscode.TreeItemCollapsibleState
     ) {
         super(label, collapsibleState);
+        this.command = {
+            command: 'course.showDetail',
+            title: 'Show Detail',
+            arguments: [this],
+        };
     }
 }

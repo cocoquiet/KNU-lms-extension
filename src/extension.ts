@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-import { getCourseList } from './commands/getCourseList';
 import { Course, CoursesProvider } from "./courses";
+import { getCourseList } from './commands/getCourseList';
 
 export async function activate(context: vscode.ExtensionContext) {
 	let config = vscode.workspace.getConfiguration('knu');
@@ -19,10 +19,9 @@ export async function activate(context: vscode.ExtensionContext) {
 		coursesProvider.refresh(courses);
 	});
 
-	let checkapi = vscode.commands.registerCommand('knu.checkapi', async () => {
+	vscode.commands.registerCommand('course.showDetail', (course: Course) => {
+		vscode.window.showInformationMessage(course.label);
 	});
-
-	context.subscriptions.push(checkapi);
 }
 
 export function deactivate() {}
