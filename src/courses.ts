@@ -35,8 +35,8 @@ export class Course extends vscode.TreeItem {
     ) {
         super(label, collapsibleState);
         this.command = {
-            command: 'course.showDetail',
-            title: 'Show Detail',
+            command: 'course.listAssignment',
+            title: 'List Assignment',
             arguments: [this],
         };
     }

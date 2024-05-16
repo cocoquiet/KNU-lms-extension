@@ -15,21 +15,21 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "LMS",
+          "id": "lmsContainer",
           "title": "KNU lms extension",
           "icon": "resources/knu_logo.svg"
         }
       ]
     },
     "views": {
-      "LMS": [
+      "lmsContainer": [
         {
           "id": "course",
           "name": "course"
         },
         {
           "id": "detail",
-          "name": "detail"
+          "name": "assignment"
         }
       ]
     },
@@ -44,21 +44,16 @@
     },
     "commands": [
       {
-        "command": "knu.checkapi",
-        "title": "check api"
-      },
-      {
         "command": "course.refreshEntry",
         "title": "refresh",
         "icon": {
           "light": "resources/light/refresh.svg",
           "dark": "resources/dark/refresh.svg"
-        
         }
       },
       {
-        "command": "course.showDetail",
-        "title": "Show Detail"
+        "command": "course.listAssignment",
+        "title": "list assignment"
       }
     ], 
     "configuration": {
