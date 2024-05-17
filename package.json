@@ -28,7 +28,7 @@
           "name": "course"
         },
         {
-          "id": "detail",
+          "id": "assignment",
           "name": "assignment"
         }
       ]
@@ -54,6 +54,10 @@
       {
         "command": "course.listAssignment",
         "title": "list assignment"
+      },
+      {
+        "command": "assignment.displayAssignmentPage",
+        "title": "display assignment page"
       }
     ], 
     "configuration": {

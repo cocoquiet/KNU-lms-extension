@@ -30,8 +30,14 @@ export class Assignment extends vscode.TreeItem {
     constructor(
         public readonly label: string,
         public readonly id_: number,
+        public readonly html: string,
         public readonly collapsibleState: vscode.TreeItemCollapsibleState
     ) {
         super(label, collapsibleState);
+        this.command = {
+            command: 'assignment.displayAssignmentPage',
+            title: 'Display Assignment Page',
+            arguments: [this],
+        };
     }
 }
